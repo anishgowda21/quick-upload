@@ -1,18 +1,14 @@
 ---
 import { ImageUploader } from "../components/image-uploader";
-import "../styles/global.css";
+import SignOut from "../components/SignOut";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1 class="text-4xl font-bold text-blue-600">Astro</h1>
-    <ImageUploader client:load />
-  </body>
-</html>
+<Layout title="Quick Upload">
+  <SignOut client:load />
+
+  <h1 class="text-3xl font-bold text-gray-900 mb-2">Quick Upload</h1>
+  <p class="text-gray-600 mb-8">Fast and secure file sharing</p>
+
+  <ImageUploader client:load />
+</Layout>

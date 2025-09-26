@@ -1,4 +1,4 @@
-import { UploadButton } from "../utils/uploadthing";
+import { UploadButton } from "../utils/uploadthing-client";
 
 export function ImageUploader() {
   return (
