@@ -1,17 +1,18 @@
 import { UploadButton } from "../utils/uploadthing-client";
+import toast from "react-hot-toast";
 
 export function ImageUploader() {
   return (
     <UploadButton
       endpoint="imageUploader"
       onClientUploadComplete={(res) => {
-        // Do something with the response
-        console.log("Files: ", res);
-        alert("Upload Completed");
+        toast("Upload Completed", { position: "top-right", icon: "✅" });
       }}
       onUploadError={(error: Error) => {
-        // Do something with the error.
-        alert(`ERROR! ${error.message}`);
+        toast("Error, could not upload!", {
+          position: "top-right",
+          icon: "❌",
+        });
       }}
     />
   );

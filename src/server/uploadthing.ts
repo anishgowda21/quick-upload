@@ -1,8 +1,15 @@
 import { createUploadthing, type FileRouter } from "uploadthing/server";
+import { auth } from "../utils/auth";
 
 const f = createUploadthing();
 
-const auth = (req: Request) => ({ id: "sampelID" });
+const getUser = async (req: Request) => {
+  const session = await auth.api
+    .getSession({ headers: req.headers })
+    .catch(() => null);
+
+  return session?.user || null;
+};
 
 export const ourFileRouter = {
   imageUploader: f({
@@ -12,7 +19,7 @@ export const ourFileRouter = {
     },
   })
     .middleware(async ({ req }) => {
-      const user = await auth(req);
+      const user = await getUser(req);
 
       if (!user) throw new Error("Unauthorized");
 

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Toaster } from "react-hot-toast";
 export interface Props {
   title: string;
   description?: string;
@@ -22,5 +23,6 @@ const { title, description = "Quick Upload - Fast and secure file sharing" } =
     <main>
       <slot />
     </main>
+    <Toaster client:load />
   </body>
 </html>

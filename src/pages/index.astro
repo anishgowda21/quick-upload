@@ -1,11 +1,16 @@
 ---
 import { ImageUploader } from "../components/image-uploader";
 import SignOut from "../components/SignOut";
+import AuthSkeleton from "../components/skeletons/AuthSkeleton.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Quick Upload">
-  <SignOut client:load />
+  <AuthSkeleton />
+
+  <div id="auth-component" class="hidden">
+    <SignOut client:load />
+  </div>
 
   <h1 class="text-3xl font-bold text-gray-900 mb-2">Quick Upload</h1>
   <p class="text-gray-600 mb-8">Fast and secure file sharing</p>

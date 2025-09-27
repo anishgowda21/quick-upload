@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { signOut, useSession } from "../utils/auth-client";
 
 export default function SignOut() {
   const [isLoading, setIsLoading] = useState(false);
-  const { data: session } = useSession();
+  const { data: session, isPending } = useSession();
+
+  useEffect(() => {
+    if (!isPending && session) {
+      const skeleton = document.getElementById("auth-skeleton");
+      const component = document.getElementById("auth-component");
+
+      skeleton?.classList.add("hidden");
+      component?.classList.remove("hidden");
+    }
+  }, [isPending, session]);
 
   const handleSignOut = async () => {
     setIsLoading(true);
