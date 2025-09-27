@@ -14,7 +14,7 @@ export const file = sqliteTable("file", {
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
   createdAt: integer("created_at", { mode: "timestamp" })
-    .default(new Date())
+    .default(sql`(unixepoch())`)
     .notNull(),
   updatedAt: integer("updated_at", { mode: "timestamp" })
     .$onUpdate(() => new Date())

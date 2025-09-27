@@ -15,6 +15,27 @@
       "when": 1758968162613,
       "tag": "0001_clear_sandman",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1758972426604,
+      "tag": "0002_fantastic_johnny_blaze",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1758972599785,
+      "tag": "0003_woozy_cassandra_nova",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1758980365211,
+      "tag": "0004_old_blink",
+      "breakpoints": true
     }
   ]
 }

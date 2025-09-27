@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "ds": "drizzle-kit studio"
+    "ds": "drizzle-kit studio",
+    "gen": "drizzle-kit generate",
+    "mig": "drizzle-kit migrate"
   },
   "dependencies": {
     "@astrojs/node": "^9.4.4",
