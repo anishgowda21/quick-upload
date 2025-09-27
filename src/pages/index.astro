@@ -1,4 +1,5 @@
 ---
+import FilesTable from "../components/FilesTable";
 import { ImageUploader } from "../components/image-uploader";
 import SignOut from "../components/SignOut";
 import AuthSkeleton from "../components/skeletons/AuthSkeleton.astro";
@@ -16,4 +17,5 @@ import Layout from "../layouts/Layout.astro";
   <p class="text-gray-600 mb-8">Fast and secure file sharing</p>
 
   <ImageUploader client:load />
+  <FilesTable client:load />
 </Layout>

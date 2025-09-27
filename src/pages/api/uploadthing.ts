@@ -1,5 +1,5 @@
 import { createRouteHandler } from "uploadthing/server";
-import { ourFileRouter } from "../../server/uploadthing";
+import { ourFileRouter } from "../../server/uploadthing-router";
 
 const t = import.meta.env.UPLOADTHING_TOKEN;
 

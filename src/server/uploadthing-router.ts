@@ -1,5 +1,6 @@
 import { createUploadthing, type FileRouter } from "uploadthing/server";
 import { auth } from "../utils/auth";
+import { addFile } from "../db/operations/fileOperations";
 
 const f = createUploadthing();
 
@@ -27,7 +28,10 @@ export const ourFileRouter = {
     })
     .onUploadComplete(async ({ metadata, file }) => {
       console.log("Upload complete for userId:", metadata.userId);
-      console.log("file url", file.ufsUrl);
+
+      const savedFile = await addFile(metadata.userId, file);
+      console.log("Saved file:", savedFile);
+
       return { uploadedBy: metadata.userId };
     }),
 } satisfies FileRouter;
