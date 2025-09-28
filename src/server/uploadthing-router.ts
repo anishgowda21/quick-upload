@@ -1,4 +1,4 @@
-import { createUploadthing, type FileRouter } from "uploadthing/server";
+import { createUploadthing, type FileRouter, UTApi } from "uploadthing/server";
 import { auth } from "../utils/auth";
 import { addFile } from "../db/operations/fileOperations";
 
@@ -37,3 +37,5 @@ export const ourFileRouter = {
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
+
+export const utapi = new UTApi({ token: import.meta.env.UPLOADTHING_TOKEN});

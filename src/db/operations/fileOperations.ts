@@ -40,3 +40,11 @@ export async function getAllFiles(userId: string) {
     throw new Error("Failed to retrieve user files");
   }
 }
+
+export async function deleteFile(fileId: string) {
+  try {
+    await db.delete(file).where(eq(file.id, fileId));
+  } catch (error) {
+    console.error("Failed to delete file from database:", error);
+  }
+}

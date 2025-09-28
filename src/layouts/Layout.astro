@@ -1,5 +1,4 @@
 ---
-import QueryProvider from "../components/QueryProvider";
 import "../styles/global.css";
 import { Toaster } from "react-hot-toast";
 export interface Props {
@@ -21,11 +20,9 @@ const { title, description = "Quick Upload - Fast and secure file sharing" } =
     <title>{title}</title>
   </head>
   <body>
-    <QueryProvider client:load>
-      <main>
-        <slot />
-      </main>
-    </QueryProvider>
+    <main>
+      <slot />
+    </main>
     <Toaster client:load />
   </body>
 </html>

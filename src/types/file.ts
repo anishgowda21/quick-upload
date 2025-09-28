@@ -8,3 +8,10 @@ export type FileData = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type DeleteModel = {
+  isOpen: boolean;
+  fileId: string;
+  fileName: string;
+  isDeleting: boolean;
+};

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { queryClient } from "../utils/query-client";
 import { fetchFiles } from "../utils/file-api";
 import type { FileData } from "../types/file";
+import { queryClient } from "../utils/query-client";
 
 export function useFiles() {
   const query = useQuery<FileData[]>(
