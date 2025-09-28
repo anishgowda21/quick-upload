@@ -13,10 +13,10 @@ const getUser = async (req: Request) => {
 };
 
 export const ourFileRouter = {
-  imageUploader: f({
-    image: {
-      maxFileSize: "4MB",
-      maxFileCount: 1,
+  fileUploader: f({
+    blob: {
+      maxFileSize: "1GB",
+      maxFileCount: 10,
     },
   })
     .middleware(async ({ req }) => {
@@ -38,4 +38,4 @@ export const ourFileRouter = {
 
 export type OurFileRouter = typeof ourFileRouter;
 
-export const utapi = new UTApi({ token: import.meta.env.UPLOADTHING_TOKEN});
+export const utapi = new UTApi({ token: import.meta.env.UPLOADTHING_TOKEN });

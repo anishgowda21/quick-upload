@@ -35,7 +35,9 @@ export default function SignOut() {
     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg mb-6">
       <div>
         <p className="text-sm text-gray-600">Signed in as</p>
-        <p className="font-medium text-gray-900">{session.user.email}</p>
+        <p className="font-medium text-gray-900">
+          {session.user.name} ({session.user.email})
+        </p>
       </div>
       <button
         onClick={handleSignOut}

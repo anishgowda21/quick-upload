@@ -29,7 +29,7 @@ export default function SignIn() {
         return;
       }
       console.log("Sign in successful");
-      window.location.href = "/";
+      window.location.reload();
     } catch (err) {
       console.error("Unexpected error:", err);
       setError("An unexpected error occurred. Please try again.");

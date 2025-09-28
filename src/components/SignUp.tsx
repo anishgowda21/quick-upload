@@ -32,7 +32,7 @@ export default function SignUp() {
       }
 
       console.log("Sign up successful");
-      window.location.href = "/";
+      window.location.reload();
     } catch (err) {
       console.error("Unexpected error:", err);
       setError("An unexpected error occurred. Please try again.");
