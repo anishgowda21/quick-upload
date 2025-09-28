@@ -10,7 +10,7 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
-    disableSignUp: false,
+    disableSignUp: true,
   },
   rateLimit: {
     enabled: true,

@@ -1,43 +1,66 @@
-# Astro Starter Kit: Minimal
+# Quick Upload ⚡️(Personal)
+![Quick Upload Screenshot](screenshots/quick_upload.png)
 
-```sh
-bun create astro@latest -- --template minimal
+This app was made for personal use. If you wanna clone it and make it work, set these env vars:
+
+```
+UPLOADTHING_TOKEN=
+UPLOADTHING_CALLBACK_URL=   # production only
+
+BETTER_AUTH_SECRET=
+PUBLIC_BETTER_AUTH_URL=       # same as below (needed on frontend, so double-declare)
+BETTER_AUTH_URL=              # same as above
+
+TURSO_DATABASE_URL=
+TURSO_AUTH_TOKEN=
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Where to get these
 
-## 🚀 Project Structure
+- `UPLOADTHING_TOKEN`  
+  Head to [UploadThing](https://uploadthing.com/) dashboard → API Keys. Create a key and drop it here.  
+  `UPLOADTHING_CALLBACK_URL` is your deployed site URL (e.g., https://yourdomain.com) for production.
 
-Inside of your Astro project, you'll see the following folders and files:
+- `BETTER_AUTH_SECRET`  
+  Generate a random string (32+ chars). You can use:  
+  `bunx nanoid` or `openssl rand -base64 32` (anything long and secret works).
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+- `BETTER_AUTH_URL` and `PUBLIC_BETTER_AUTH_URL`  
+  Both should be your app’s base URL.
+
+  - Local: `http://localhost:4321` (Astro default)
+  - Prod: your deployed URL.  
+    Keep them identical, just remember the `PUBLIC_` version is exposed to the client.
+
+- `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN`  
+  From Turso dashboard → your database → Connection details. Create a token and copy the URL + token.
+
+## Tech Stack
+
+- Astro
+- React
+- Tailwind CSS
+- Drizzle ORM
+- TanStack Query
+- TanStack Table
+- UploadThing
+- Turso (libSQL)
+
+## Getting Started (with Bun)
+
+```
+# 1) Install deps
+bun install
+
+# 2) Copy env example and fill values
+cp .env.example .env
+
+# 3) Run dev server
+bun run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Tips
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- If uploads fail locally, double-check `UPLOADTHING_TOKEN` and that your URL vars match your actual origin.
+- For prod, set `UPLOADTHING_CALLBACK_URL` to your live domain so webhooks/callbacks behave.
+- Drizzle + Turso: if you need to push schema, run your drizzle migrations after setting the Turso vars.
